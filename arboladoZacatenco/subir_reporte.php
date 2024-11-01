@@ -22,23 +22,42 @@ if(isset($_POST['subir_reporte'])){
         die("Query failed");
     }
 
-    $_SESSION['message'] = "M.toast({html: 'El reporte se ha registrado correctamente'})";
+    $_SESSION['message'] = "M.toast({html: 'El reporte se ha registrado correctamente', displayLength: 8000})";
 
-    /*
-    ini_set('SMTP','localhost');
-    ini_set('smtp_port', 25);
-    $from = "betovegamon@gmail.com";
-    $subject = "Reporte de arbolado";
-    $message = "PHP mail works just fine";
-    $headers = "From:" . $from;
-    mail($correo,$from,$message, $headers);
-    echo "The email message was sent.";
+    if(!empty($correo)){
+        ini_set('SMTP','smtp.gmail.com');
+        ini_set('smtp_port', 587);
+        // Modificar de acuerdo a la ubicación donde se encuentra instalado XAMPP
+        ini_set('sendmail_path', "D:\xampp\sendmail\sendmail.exe -t"); 
+        $subject = "Reporte de arbolado";
+        if(!empty($nombre)){
+            $remitente = $nombre;
+        } else {
+            $remitente = $correo;
+        }
+        $message = '
+        <html>
+            <head>
+                <title>REPORTE REGISTRADO CON ÉXITO</title>
+            </head>
+            <body>
+                <h1>Estimado '.$remitente.'...</h1>
+                <p>Te informamos que se ha registrado correctamente un reporte de arbolado en la ubicación 
+                ['.$latitud.', '.$longitud.'], correspondiente a la categoría: '.$tipoReporte.'. Más adelante,
+                te informaremos la actualización en el estado de tu reporte.</p>
+                <br><br>
+                <p>Muchas gracias por tu colaboración.</p>
+            </body>
+        </html>
+        ';
+        $headers = "MIME-Version: 1.0\r\nContent-type: text/html; charset=utf-8\r\n";
+        $headers .= "From: betovegamon@gmail.com\r\nReturn-path: $correo\r\n";
+        mail($correo,$subject,$message, $headers);
 
-    $_SESSION['message_correo'] = "M.toast({html: 'Se ha enviado un mensaje a tu correo electrónico'})";
-*/
+        $_SESSION['message_correo'] = "M.toast({html: 'Se ha enviado un mensaje a tu correo electrónico', displayLength: 8000})";
+    }
 
     header("Location: reporte.php");
-
 }
 
 ?>

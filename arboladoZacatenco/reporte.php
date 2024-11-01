@@ -1,21 +1,21 @@
 <?php include("db.php"); ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Levantar reporte</title>
-    <link rel="icon" href="includes/tree-fill.svg">    
-    <link rel="stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="includes/estilos.css" />
-</head>
+<?php include("includes/header.php") ?>
 
-<body onload="<?php if(isset($_SESSION['message'])){ ?>
-    <?= $_SESSION['message'] ?>
-    <?php session_unset(); }?>">
+<body onload="<?php 
+    if(isset($_SESSION['message'])){ 
+        echo $_SESSION['message'];
+    }
+
+    if(isset($_SESSION['message_correo'])){ 
+        echo ",";
+        echo $_SESSION['message_correo'];
+    }
+
+    if(isset($_SESSION['message']) || isset($_SESSION['message_correo'])){
+        session_unset();
+    }
+    ?>">
     <div class="navbar-fixed">
         <nav class="light-green darken-1">
             <div class="nav-wrapper container">
@@ -27,7 +27,7 @@
         </nav>
     </div>
     <h3 class="center-align"><strong>LEVANTAR REPORTE DE ARBOLADO</strong></h3>
-
+    
     <div class="row">
         <div id="map" class="col s12" style="height:30em;"></div>
     </div>
@@ -139,20 +139,5 @@
         </div>
     </div> 
 
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="includes/mapa.js"></script>
-
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('select');
-            var instances = M.FormSelect.init(elems);
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.materialboxed');
-            var instances = M.Materialbox.init(elems);
-        });
-    </script>
-</body>
+<?php include("includes/footer.php") ?>
 </html>
