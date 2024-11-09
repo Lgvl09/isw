@@ -7,5 +7,6 @@
 </head>
 <body>
     <a href="reporte.php">¿Quieres levantar un reporte?</a>
+    <a href="seguimiento_reporte.php">Revisar estado del reporte</a>
 </body>
 </html>
