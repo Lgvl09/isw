@@ -59,24 +59,51 @@
                                 <div class="modal-content">
                                     <h4>Modificación de estado</h4>
                                     <form action="modificar.php?id=<?php echo $row['id']; ?>" method="POST" enctype="multipart/form-data">
-                                        <div class = "col s6">
-                                            <div class ="input-field col s10 offset-s2">
+                                    <div class="row">
+                                        <!-- Sección de Estado -->
+                                        <div class="col s6">
+                                            <div class="input-field">
                                                 <i class="bi bi-card-list prefix"></i>
-                                                <input placeholder="<?php echo $row['estado_reporte']; ?>" id="estado" name="estado" type="text" class="validate">
-                                                <label for="nombre">Nombre</label>
+                                                <label>Estado</label><br><br>
+                                                <p>
+                                                    <label>
+                                                        <input name="estado" type="radio" value="Pendiente" <?php echo ($row['estado_reporte'] == 'Pendiente') ? 'checked' : ''; ?> />
+                                                        <span>Pendiente</span>
+                                                    </label>
+                                                </p>
+                                                <p>
+                                                    <label>
+                                                        <input name="estado" type="radio" value="En proceso" <?php echo ($row['estado_reporte'] == 'En proceso') ? 'checked' : ''; ?> />
+                                                        <span>En proceso</span>
+                                                    </label>
+                                                </p>
+                                                <p>
+                                                    <label>
+                                                        <input name="estado" type="radio" value="Resuelto" <?php echo ($row['estado_reporte'] == 'Resuelto') ? 'checked' : ''; ?> />
+                                                        <span>Resuelto</span>
+                                                    </label>
+                                                </p>
                                             </div>
-                                            <div class="input-field col s10 offset-s2">
+                                        </div>
+
+                                        <!-- Sección de Descripción -->
+                                        <div class="col s6">
+                                            <div class="input-field">
                                                 <i class="bi bi-chat-square-fill prefix"></i>
-                                                <textarea id="descripcion" name="descripcion" class="materialize-textarea" required><?php echo $row['descripcion'] ?></textarea>
+                                                <textarea id="descripcion" name="descripcion" class="materialize-textarea" required><?php echo $row['descripcion']; ?></textarea>
                                                 <label for="descripcion">Descripción del problema</label>
                                             </div>
                                         </div>
+                                    </div>
 
                                         <div class="col s2 offset-s5">
                                             <br>
                                             <button class="btn waves-effect waves-light green darken-4 btn-small" name="editar_reporte"
                                             style="height: 4em;">Editar
                                             </button>
+                                            
+                                            <br>
+                                            <br> 
                                         </div>
                                     </form>
                                 </div>
