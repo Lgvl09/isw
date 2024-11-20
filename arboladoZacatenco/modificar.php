@@ -3,11 +3,12 @@
 
     if(isset($_POST['editar_reporte'])){
         $id = $_GET['id'];
-        
-        $descripcion = $_POST['descripcion'];
+        $nota = $_POST["notas$id"];
         $estado = $_POST['estado'];
 
-        $query = "UPDATE reporte set descripcion = '$descripcion', estado_reporte = '$estado' WHERE id = $id";
+        $query = "UPDATE reporte set estado_reporte = '$estado' WHERE id = $id";
+        mysqli_query($conn, $query);
+        $query = "INSERT INTO estado_reporte(reporte_id, notas) values ('$id', '$nota')";
         mysqli_query($conn, $query);
         header("Location: modificar_estado.php");
     }
