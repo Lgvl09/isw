@@ -18,22 +18,15 @@
     ?>">
     
     <div class="navbar-fixed">
-        <ul id="reportes" class="dropdown-content">
-            <li><a href="reporte.php">Levantar reporte</a></li>
-            <li><a href="seguimiento_reporte.php">Consultar reportes</a></li>
-            <li><a href="modificar_estado.php">Modificar estado de reportes</a></li>
-        </ul>  
         
         <nav class="light-green darken-1">
             <div class="nav-wrapper container">
                 <a href="index.php" class="brand-logo"><i class="bi bi-house-door-fill"></i></a>
-                <ul class="right">
-                    <li><a href="#" class="dropdown-trigger" data-target="reportes"><b>Reportes<i class="material-icons right">arrow_drop_down</i></b></a></li>
-                </ul>
+                
             </div>
         </nav>
     </div>
-    <h3 class="center-align"><strong>Reporte de Incidentes</strong></h3>
+    <h3 class="center-align"><strong>REPORTE DE INCIDENTES DE LA BRIGADA</strong></h3>
 
     <div class='myswrapper'>
         <form action="subirReporteIncidente.php" method="post">
