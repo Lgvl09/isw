@@ -8,5 +8,7 @@
 <body>
     <a href="reporte.php">¿Quieres levantar un reporte?</a>
     <a href="seguimiento_reporte.php">Revisar estado del reporte</a>
+    <a href="modificar_estado.php">Modificar estado del reporte</a>
+    <a href="b.html">Brigadas</a>
 </body>
 </html>

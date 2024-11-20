@@ -1,6 +1,6 @@
 
 <?php
-include 'db_connection.php';
+include ("../db.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = $_POST['nombre'] ?? '';
@@ -14,15 +14,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     try {
-        $query = "INSERT INTO brigadistas (nombre, apellidos, correo, seccion) VALUES (:nombre, :apellidos, :correo, :seccion)";
+        $query = "INSERT INTO brigadistas (nombre, apellidos, correo, seccion) VALUES (?, ?, ?, ?)";
         $stmt = $conn->prepare($query);
-        $stmt->bindParam(':nombre', $nombre);
-        $stmt->bindParam(':apellidos', $apellidos);
-        $stmt->bindParam(':correo', $correo);
-        $stmt->bindParam(':seccion', $seccion);
+        $stmt->bind_param('ssss', $nombre, $apellidos, $correo, $seccion);
         $stmt->execute();
 
         echo json_encode(['message' => 'Brigadista registrado con éxito.']);
+        header("Location: ../b.html");
     } catch (PDOException $e) {
         if ($e->getCode() === '23000') {
             echo json_encode(['error' => 'El correo ya está registrado.']);

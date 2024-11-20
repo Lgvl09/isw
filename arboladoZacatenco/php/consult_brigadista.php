@@ -1,9 +1,9 @@
 
 <?php
-include 'db_connection.php';
+include ("../db.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $correo = $_POST['correo'] ?? '';
+    $correo = $_POST['consultaCorreo'] ?? '';
 
     if (empty($correo)) {
         echo json_encode(['error' => 'Por favor, introduce un correo.']);
@@ -11,14 +11,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     try {
-        $query = "SELECT * FROM brigadistas WHERE correo = :correo";
+        $query = "SELECT * FROM brigadistas WHERE correo = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bindParam(':correo', $correo);
+        $stmt->bind_param('s', $correo);
         $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $result = $stmt->get_result();
+        $data = $result->fetch_assoc();
 
-        if ($result) {
+        if ($data) {
             echo json_encode($result);
+            header("Location: ../b.html");
         } else {
             echo json_encode(['error' => 'No se encontró ningún brigadista con ese correo.']);
         }
