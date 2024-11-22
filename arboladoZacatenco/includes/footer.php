@@ -2,7 +2,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
-    <script src="includes/mapa.js"></script>
+    <script src="js/mapa.js"></script>
 
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
@@ -13,6 +13,26 @@
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.materialboxed');
             var instances = M.Materialbox.init(elems);
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.datepicker');
+            var today = new Date();
+            
+            var instances = M.Datepicker.init(elems, {
+                autoClose: true,
+                format: "yyyy-mm-dd",
+                maxDate: today
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.timepicker');
+            var instances = M.Timepicker.init(elems);
+        });
+
+        $(document).ready(function() {
+            $('input#input_text, textarea#notas').characterCounter();
         });
     </script>
 

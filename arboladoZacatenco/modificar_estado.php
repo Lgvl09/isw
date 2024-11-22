@@ -3,22 +3,35 @@
 <?php include("includes/header.php") ?>
 
 <body>
-<div class="navbar-fixed">
+    <nav class="light-green darken-1">
+        <div class="navbar-wrapper">
+            <div class="nav-wrapper container">
+                <a href="index.php" class="brand-logo"><i class="bi bi-house-door-fill"></i></a>
+                <ul class="right">
+                    <li class="active">
+                        <a href="#" class="dropdown-trigger" data-target="reportes"><b>Reportes<i class="material-icons right">arrow_drop_down</i></b></a>
+                    </li>
+                    <li>
+                        <a class="dropdown-trigger" href="#!" data-target="dropdown1"><b>Brigadas</b><i
+                                class="material-icons right">arrow_drop_down</i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dropdown options -->
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="b.html">Voluntarios</a></li>
+        <li><a href="#!">Asignar Reporte</a></li>
+    </ul>
+
+        <!-- Dropdown options -->
     <ul id="reportes" class="dropdown-content">
         <li><a href="reporte.php">Levantar reporte</a></li>
         <li><a href="seguimiento_reporte.php">Consultar reportes</a></li>
         <li><a href="modificar_estado.php">Modificar estado de reportes</a></li>
     </ul>  
-    
-    <nav class="light-green darken-1">
-        <div class="nav-wrapper container">
-            <a href="index.php" class="brand-logo"><i class="bi bi-house-door-fill"></i></a>
-            <ul class="right">
-                <li><a href="#" class="dropdown-trigger" data-target="reportes"><b>Reportes<i class="material-icons right">arrow_drop_down</i></b></a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
     <h3 class="center-align"><strong>MODIFICAR ESTADO DE REPORTES</strong></h3>
     
     
@@ -54,33 +67,32 @@
                             <td><?php echo $row['descripcion'] ?></td>
                             <td><?php echo $row['fecha'] ?></td>
                             <td><?php echo $row['estado_reporte'] ?></td>
-                            <td> <a class="waves-effect waves-light btn modal-trigger" href="#ME?id=<?php echo $row['id']; ?>">Modificar estado</a></td>
+                            <td> <a class="waves-effect waves-light btn modal-trigger green darken-4" href="#ME?id=<?php echo $row['id']; ?>">Modificar estado</a></td>
                             <div id="ME?id=<?php echo $row['id']; ?>" class="modal">
                                 <div class="modal-content">
-                                    <h4>Modificación de estado</h4>
+                                    <h4 class="center-align">Modificación de estado</h4>
                                     <form action="modificar.php?id=<?php echo $row['id']; ?>" method="POST" enctype="multipart/form-data">
                                     <div class="row">
                                         <!-- Sección de Estado -->
-                                        <div class="col s6">
+                                        <div class="col s5 offset-s1">
                                             <div class="input-field">
-                                                <i class="bi bi-card-list prefix"></i>
-                                                <label>Estado</label><br><br>
+                                                <br>
                                                 <p>
                                                     <label>
                                                         <input name="estado" type="radio" value="Pendiente" <?php echo ($row['estado_reporte'] == 'Pendiente') ? 'checked' : ''; ?> />
-                                                        <span>Pendiente</span>
+                                                        <span class="black-text">Pendiente</span>
                                                     </label>
                                                 </p>
                                                 <p>
                                                     <label>
                                                         <input name="estado" type="radio" value="En proceso" <?php echo ($row['estado_reporte'] == 'En proceso') ? 'checked' : ''; ?> />
-                                                        <span>En proceso</span>
+                                                        <span class="black-text">En proceso</span>
                                                     </label>
                                                 </p>
                                                 <p>
                                                     <label>
                                                         <input name="estado" type="radio" value="Resuelto" <?php echo ($row['estado_reporte'] == 'Resuelto') ? 'checked' : ''; ?> />
-                                                        <span>Resuelto</span>
+                                                        <span class="black-text">Resuelto</span>
                                                     </label>
                                                 </p>
                                             </div>
@@ -90,8 +102,8 @@
                                         <div class="col s6">
                                             <div class="input-field">
                                                 <i class="bi bi-chat-square-fill prefix"></i>
-                                                <textarea id="descripcion" name="descripcion" class="materialize-textarea" required><?php echo $row['descripcion']; ?></textarea>
-                                                <label for="descripcion">Descripción del problema</label>
+                                                <textarea id="notas<?php echo $row['id']?>" name="notas<?php echo $row['id']?>" class="materialize-textarea" required data-length="200"></textarea>
+                                                <label for="notas<?php echo $row['id']?>">Notas de actualización de estado</label>
                                             </div>
                                         </div>
                                     </div>
@@ -114,6 +126,7 @@
             </table>
         </div>
     </div> 
+    <link rel="stylesheet" href="css/dropdown.css">
 
 <?php include("includes/footer.php") ?>
 </html>

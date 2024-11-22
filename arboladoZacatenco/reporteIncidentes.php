@@ -2,37 +2,43 @@
 
 <?php include("includes/header.php") ?>
 
-<body onload="<?php 
-    if(isset($_SESSION['message'])){ 
-        echo $_SESSION['message'];
-    }
+<body>
+<nav class="light-green darken-1">
+      <div class="navbar-wrapper">
+          <div class="nav-wrapper container">
+              <a href="index.php" class="brand-logo"><i class="bi bi-house-door-fill"></i></a>
+              <ul class="right">
+                <li class="active">
+                    <a href="#" class="dropdown-trigger" data-target="reportes"><b>Reportes<i class="material-icons right">arrow_drop_down</i></b></a>
+                </li>
+                  <li>
+                      <a class="dropdown-trigger" href="#!" data-target="dropdown1"><b>Brigadas</b><i
+                              class="material-icons right">arrow_drop_down</i></a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
 
-    if(isset($_SESSION['message_correo'])){ 
-        echo ",";
-        echo $_SESSION['message_correo'];
-    }
+  <!-- Dropdown options -->
+  <ul id="dropdown1" class="dropdown-content">
+      <li><a href="b.html">Voluntarios</a></li>
+      <li><a href="#!">Asignar Reporte</a></li>
+  </ul>
 
-    if(isset($_SESSION['message']) || isset($_SESSION['message_correo'])){
-        session_unset();
-    }
-    ?>">
-    
-    <div class="navbar-fixed">
-        
-        <nav class="light-green darken-1">
-            <div class="nav-wrapper container">
-                <a href="index.php" class="brand-logo"><i class="bi bi-house-door-fill"></i></a>
-                
-            </div>
-        </nav>
-    </div>
+    <!-- Dropdown options -->
+  <ul id="reportes" class="dropdown-content">
+    <li><a href="reporte.php">Levantar reporte</a></li>
+    <li><a href="seguimiento_reporte.php">Consultar reportes</a></li>
+    <li><a href="modificar_estado.php">Modificar estado de reportes</a></li>
+</ul>  
     <h3 class="center-align"><strong>REPORTE DE INCIDENTES DE LA BRIGADA</strong></h3>
 
-    <div class='myswrapper'>
+    <div class="container">
         <form action="subirReporteIncidente.php" method="post">
 
-            <div class='mycontainer'>
-                <div class='mycolumn'>
+            <div class="row">
+                <div class="col s4">
                     <label for="opcion">Selecciona una opción:</label>
                     <select id="opcion" name="opcion" required>
                         <option value="" disabled selected>Elige una opción</option>
@@ -45,33 +51,33 @@
                     </select>
                 </div>
 
-                <div class='mycolumn'>
+                <div class="col s4">
                     <!-- Selección de fecha -->
                     <label for="fecha">Selecciona una fecha:</label>
-                    <input type="date" id="fecha" name="fecha" required>
+                    <input type="text" class="datepicker" id="fecha" name="fecha" required>
                 </div>
 
-                <div class='mycolumn'>
+                <div class="col s4">
                     <!-- Selección de hora -->
                     <label for="hora">Selecciona una hora:</label>
-                    <input type="time" id="hora" name="hora" required>
+                    <input type="text" class="timepicker" id="hora" name="hora" required>
                 </div>
             </div>
 
             <div style='padding: 20px'>
-                <label style='' for="user-text">Describe el incidente:</label>
-                <input type="text" id="descripcion" name="descripcion" placeholder="Descripción" required>
+                <label style='' for="user-text">Descripción:</label>
+                <input type="text" id="descripcion" name="descripcion" placeholder="Describe el incidente..." required>
             </div>
 
             <div style='padding: 20px'>
-                <label for="user-text">Describe la acción tomada:</label>
-                <input type="text" id="accionTomada" name="accionTomada" placeholder="Acción tomada" required>
+                <label for="user-text">Acción tomada:</label>
+                <input type="text" id="accionTomada" name="accionTomada" placeholder="Describe la acción tomada..." required>
             </div>
         
             <br>
 
             <!-- Botón de envío -->
-            <div>
+            <div class="center-align">
                 <button class="btn waves-effect waves-light green darken-4" type="submit">Enviar</button>
             </div>
         

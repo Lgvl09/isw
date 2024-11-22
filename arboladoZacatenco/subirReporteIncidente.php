@@ -23,11 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Ejecutar la consulta
     if (mysqli_query($conn, $sql)) {
         echo "¡Datos guardados exitosamente!";
+        header("Location: reporteIncidentes.php");
     } else {
         echo "Error al guardar los datos: " . mysqli_error($conn);
     }
 }
 
-// Cerrar la conexión
-mysqli_close($conn);
 ?>
