@@ -11,5 +11,6 @@
     <a href="modificar_estado.php">Modificar estado del reporte</a>
     <a href="b.html">Brigadas</a>
     <a href="reporteIncidentes.php">Reporte de incidentes en brigadas</a>
+    <a href="monitoreoReporte.php">Monitoreo de actividades de la brigada</a>
 </body>
 </html>

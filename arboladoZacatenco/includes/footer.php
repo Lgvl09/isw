@@ -77,6 +77,35 @@
                 }
             }
         });
+
+        $('#tabla_monitoreo_reportes').DataTable({
+            "order": [[0, "asc"]], // Orden inicial por la primera columna (ID)
+            "paging": false,       // Desactiva la paginación (botones Anterior y Siguiente)
+            "info": false,         // Desactiva la información ("Mostrando página X de Y")
+            "searching": false, 
+            "columns": [
+                null,               // ID (ordenable)
+                null,               // Tipo de reporte (ordenable)
+                { "orderable": false }, // Descripción (no ordenable)
+                { "orderable": false }, // Imagen (no ordenable)
+                { "orderable": true, "type": "date" }, // Fecha (ordenable)
+                null,                // Estado del reporte (ordenable)
+                null                // Estado del reporte (ordenable)
+            ],
+            "language": {
+                "lengthMenu": "Mostrar _MENU_ registros por página",
+                "zeroRecords": "No se encontraron resultados",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "infoEmpty": "No hay registros disponibles",
+                "infoFiltered": "(filtrado de _MAX_ registros en total)",
+                "search": "Buscar:",
+                "paginate": {
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
+        });
+        
     });
     </script>
 

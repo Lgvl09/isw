@@ -44,6 +44,7 @@
     <li><a href="reporte.php">Levantar reporte</a></li>
     <li><a href="seguimiento_reporte.php">Consultar reportes</a></li>
     <li><a href="modificar_estado.php">Modificar estado de reportes</a></li>
+    <li><a href="monitoreoReporte.php">Monitoreo de reportes</a></li>
 </ul>  
     <h3 class="center-align"><strong>LEVANTAR REPORTE DE ARBOLADO</strong></h3>
     
