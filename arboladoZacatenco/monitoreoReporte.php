@@ -41,33 +41,43 @@
           <div class="nav-wrapper container">
               <a href="index.php" class="brand-logo"><i class="bi bi-house-door-fill"></i></a>
               <ul class="right">
-                <li class="active">
-                    <a href="#" class="dropdown-trigger" data-target="reportes"><b>Reportes<i class="material-icons right">arrow_drop_down</i></b></a>
-                </li>
-                  <li>
-                      <a class="dropdown-trigger" href="#!" data-target="dropdown1"><b>Brigadas</b><i
-                              class="material-icons right">arrow_drop_down</i></a>
-                  </li>
+                    <li class="active">
+                        <a href="#" class="dropdown-trigger" data-target="coordDropdown"><b>Coordinador<i class="material-icons right">arrow_drop_down</i></b></a>
+                    </li>
+                    <li class="active">
+                        <a href="#" class="dropdown-trigger" data-target="reportes"><b>Reportes<i class="material-icons right">arrow_drop_down</i></b></a>
+                    </li>
+                    <li>
+                        <a class="dropdown-trigger" href="#!" data-target="dropdown1"><b>Brigadas</b><i class="material-icons right">arrow_drop_down</i></a>
+                    </li>
               </ul>
           </div>
       </div>
   </nav>
 
+<!-- Dropdown options -->
+    <ul id="coordDropdown" class="dropdown-content">
+        <li><a href="registroCoordinador.php">Registrar Coordinadores</a></li>
+    </ul>
+
+
   <!-- Dropdown options -->
-  <ul id="dropdown1" class="dropdown-content">
-      <li><a href="b.html">Voluntarios</a></li>
-      <li><a href="#!">Asignar Reporte</a></li>
-  </ul>
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="b.html">Voluntarios</a></li>
+        <li><a href="#!">Asignar Reporte</a></li>
+    </ul>
 
     <!-- Dropdown options -->
-  <ul id="reportes" class="dropdown-content">
-    <li><a href="reporte.php">Levantar reporte</a></li>
-    <li><a href="seguimiento_reporte.php">Consultar reportes</a></li>
-    <li><a href="modificar_estado.php">Modificar estado de reportes</a></li>
-    <li><a href="monitoreoReporte.php">Monitoreo de reportes</a></li>
-</ul>  
+    <ul id="reportes" class="dropdown-content">
+        <li><a href="reporte.php">Levantar reporte</a></li>
+        <li><a href="seguimiento_reporte.php">Consultar reportes</a></li>
+        <li><a href="modificar_estado.php">Modificar estado de reportes</a></li>
+        <li><a href="monitoreoReporte.php">Monitoreo de reportes</a></li>
+    </ul>  
+
     <h3 class="center-align"><strong>MONITOREO DE ACTIVIDADES DE LA BRIGADA</strong></h3>
 
+    <div style="width: 80%; margin: 0 auto;  padding: 0px; box-sizing: border-box;">
     <div class="row">
         <table id="tabla_monitoreo_reportes" class="responsive-table centered highlight" >
             <thead>
@@ -131,6 +141,7 @@
                 <?php } ?>
             </tbody>
         </table>
+    </div> 
     </div> 
     <link rel="stylesheet" href="css/dropdown.css">
 
