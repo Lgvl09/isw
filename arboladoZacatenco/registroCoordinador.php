@@ -71,7 +71,7 @@
                 <div class="row">
                     <div class="input-field col s5">
                         <i class="material-icons prefix">assignment_ind</i>
-                        <input id="registrador" name="registrador" type="text" class="validate">
+                        <input id="registrador" name="registrador" type="text" class="validate" required>
                         <label for="registrador">Ingrese el correo de quien realiza el registro.</label>
                     </div>
                     <div class="input-field col s7">
@@ -86,11 +86,11 @@
                 <div class="row">
                     <div class="input-field col s5">
                         <i class="material-icons prefix">person</i>
-                        <input id="nombreCoord" name="nombreCoord" type="text" class="validate">
+                        <input id="nombreCoord" name="nombreCoord" type="text" class="validate" required>
                         <label for="nombreCoord">Nombre</label>
                     </div>
                     <div class="input-field col s5">
-                        <input id="apellidoCoord" name="apellidoCoord" type="text" class="validate">
+                        <input id="apellidoCoord" name="apellidoCoord" type="text" class="validate" required>
                         <label for="apellidoCoord">Apellido</label>
                     </div>
                     <div class="input-field col s2">
@@ -104,12 +104,12 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">phone</i>
-                        <input id="telefonoCoord" name="telefonoCoord" type="tel" class="validate">
+                        <input id="telefonoCoord" name="telefonoCoord" type="tel" class="validate" required>
                         <label for="telefonoCoord">Telefono</label>
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">email</i>
-                        <input id="correoCoord" name="correoCoord" type="email" class="validate">
+                        <input id="correoCoord" name="correoCoord" type="email" class="validate" required>
                         <label for="correoCoord">Email</label>
                     </div>
                     <!--

@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 30-11-2024 a las 06:52:19
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 22-11-2024 a las 06:29:09
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,80 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `arbolado`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `brigadistas`
+--
+
+CREATE TABLE `brigadistas` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `apellidos` varchar(100) NOT NULL,
+  `correo` varchar(50) NOT NULL,
+  `seccion` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `brigadistas`
+--
+
+INSERT INTO `brigadistas` (`id`, `nombre`, `apellidos`, `correo`, `seccion`) VALUES
+(1, 'Nombre1', 'Apellido1', 'prueba1@gmail.com', 'ESTADIO WILFRIDO MASSIEU'),
+(2, 'Nombre1', 'Apellido1', 'prueba1@gmail.com', 'ESTADIO WILFRIDO MASSIEU'),
+(3, 'Prueba 2', 'xd', 'si@gmail.com', 'ESIT');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `coordinadores`
+--
+
+CREATE TABLE `coordinadores` (
+  `id` int(11) NOT NULL,
+  `coordSuper` tinyint(1) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `apellido` varchar(50) NOT NULL,
+  `correo` varchar(50) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
+  `contrasena` varchar(8) NOT NULL,
+  `fechaRegistro` date NOT NULL DEFAULT current_timestamp(),
+  `telefono` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `coordinadores`
+--
+
+INSERT INTO `coordinadores` (`id`, `coordSuper`, `nombre`, `apellido`, `correo`, `contrasena`, `fechaRegistro`, `telefono`) VALUES
+(1, 1, 'Braulio Emilio ', 'Rodríguez Ayala', 'rodriguez.ayala.braulioemilio@gmail.com', 'abcd1234', '2024-11-27', 5527714259);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estado_reporte`
+--
+
+CREATE TABLE `estado_reporte` (
+  `id` int(11) NOT NULL,
+  `reporte_id` int(11) NOT NULL,
+  `fecha_cambio` date NOT NULL DEFAULT current_timestamp(),
+  `notas` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `estado_reporte`
+--
+
+INSERT INTO `estado_reporte` (`id`, `reporte_id`, `fecha_cambio`, `notas`) VALUES
+(1, 3, '2024-11-14', 'Estado inicial: Pendiente'),
+(8, 4, '2024-11-19', 'Estado inicial: Pendiente'),
+(9, 3, '2024-11-19', 'cccccccc'),
+(10, 4, '2024-11-19', ''),
+(11, 4, '2024-11-19', ''),
+(12, 4, '2024-11-19', ''),
+(13, 4, '2024-11-19', 'nopuedo'),
+(14, 1, '2024-11-20', 'Reporte resuelto');
 
 -- --------------------------------------------------------
 
@@ -79,6 +153,12 @@ INSERT INTO `reporteincidente` (`id`, `opcion`, `fecha`, `hora`, `descripcion`, 
 --
 
 --
+-- Indices de la tabla `coordinadores`
+--
+ALTER TABLE `coordinadores`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `reporte`
 --
 ALTER TABLE `reporte`
@@ -93,6 +173,12 @@ ALTER TABLE `reporteincidente`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `coordinadores`
+--
+ALTER TABLE `coordinadores`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `reporte`
