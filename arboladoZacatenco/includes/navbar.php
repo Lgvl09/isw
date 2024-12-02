@@ -1,0 +1,39 @@
+<nav class="light-green darken-1">
+    <div class="navbar-wrapper">
+        <div class="nav-wrapper container">
+            <a href="index.php" class="brand-logo"><i class="bi bi-house-door-fill"></i></a>
+            <ul class="right">
+            <li class="active">
+                <a href="#" class="dropdown-trigger" data-target="reportes"><b>Reportes<i class="material-icons right">arrow_drop_down</i></b></a>
+            </li>
+            <li>
+                <a class="dropdown-trigger" href="#!" data-target="dropdown1"><b>Brigadas</b><i class="material-icons right">arrow_drop_down</i></a>
+            </li>
+            <li>
+                <a class="dropdown-trigger" href="#" data-target="censos"><b>Censos</b><i class="material-icons right">arrow_drop_down</i></a>
+            </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Dropdown options -->
+<ul id="dropdown1" class="dropdown-content">
+    <li><a href="b.html">Voluntarios</a></li>
+    <li><a href="#!">Asignar Reporte</a></li>
+</ul>
+
+    <!-- Dropdown options -->
+<ul id="reportes" class="dropdown-content">
+    <li><a href="reporte.php">Levantar reporte</a></li>
+    <li><a href="seguimiento_reporte.php">Consultar reportes</a></li>
+    <li><a href="modificar_estado.php">Modificar estado de reportes</a></li>
+    <li><a href="monitoreoReporte.php">Monitoreo de reportes</a></li>
+</ul> 
+
+<ul id="censos" class="dropdown-content">
+    <li><a href="censo_arbol.php">Registrar arbol</a></li>
+    <li><a href="consultar_censo.php">Consultar censos</a></li>
+    <li><a href="modificar_censo.php">Actualizar censo</a></li>
+</ul>
+
