@@ -1,6 +1,6 @@
-<?php include("db.php"); ?>
+<?php include("../db.php"); ?>
 
-<?php include("includes/header.php") ?>
+<?php include("../includes/header.php") ?>
 
 <body onload="<?php 
     if(isset($_SESSION['message'])){ 
@@ -12,7 +12,7 @@
     }
     ?>">
 
-    <?php include("includes/navbar.php") ?> 
+    <?php include("../includes/navbar.php") ?> 
 
     <h3 class="center-align"><strong>REGISTRAR DATOS DE UN ARBOL</strong></h3><br><br>
     
@@ -58,9 +58,9 @@
 
     </div>
 
-    <script src="js/brigada.js"></script>
-    <link rel="stylesheet" href="css/dropdown.css">
+    <script src="../js/brigada.js"></script>
+    <link rel="stylesheet" href="../css/dropdown.css">
 
 
-<?php include("includes/footer.php") ?>
+<?php include("../includes/footer.php") ?>
 </html>

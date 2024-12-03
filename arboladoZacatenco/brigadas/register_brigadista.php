@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute();
 
         echo json_encode(['message' => 'Brigadista registrado con éxito.']);
-        header("Location: ../b.html");
+        header("Location: b.html");
     } catch (PDOException $e) {
         if ($e->getCode() === '23000') {
             echo json_encode(['error' => 'El correo ya está registrado.']);

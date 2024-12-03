@@ -1,10 +1,10 @@
-<?php include("db.php"); ?>
+<?php include("../db.php"); ?>
 
-<?php include("includes/header.php") ?>
+<?php include("../includes/header.php") ?>
 
 <body>
     
-<?php include("includes/navbar.php") ?>  
+<?php include("../includes/navbar.php") ?>  
       
     <h3 class="center-align"><strong>MODIFICAR ESTADO DE REPORTES</strong></h3>
     
@@ -96,7 +96,7 @@
             </table>
         </div>
     </div> 
-    <link rel="stylesheet" href="css/dropdown.css">
+    <link rel="stylesheet" href="../css/dropdown.css">
 
-<?php include("includes/footer.php") ?>
+<?php include("../includes/footer.php") ?>
 </html>

@@ -1,5 +1,5 @@
 <?php
-include("db.php");
+include("../db.php");
 
 // Función para generar la contraseña aleatoria
 function generarContrasenaAleatoria($longitud = 8) {
