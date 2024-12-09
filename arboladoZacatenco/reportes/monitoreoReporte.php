@@ -1,6 +1,6 @@
-<?php include("db.php"); ?>
+<?php include("../db.php"); ?>
 
-<?php include("includes/header.php") ?>
+<?php include("../includes/header.php") ?>
 
 <style>
     /* Estilo para el círculo con fondo rojo y texto blanco */
@@ -39,7 +39,7 @@
 <nav class="light-green darken-1">
       <div class="navbar-wrapper">
           <div class="nav-wrapper container">
-              <a href="index.php" class="brand-logo"><i class="bi bi-house-door-fill"></i></a>
+              <a href="../index.php" class="brand-logo"><i class="bi bi-house-door-fill"></i></a>
               <ul class="right">
                     <li class="active">
                         <a href="#" class="dropdown-trigger" data-target="coordDropdown"><b>Coordinador<i class="material-icons right">arrow_drop_down</i></b></a>
@@ -143,7 +143,7 @@
         </table>
     </div> 
     </div> 
-    <link rel="stylesheet" href="css/dropdown.css">
+    <link rel="stylesheet" href="../css/dropdown.css">
 
-<?php include("includes/footer.php") ?>
+<?php include("../includes/footer.php") ?>
 </html>

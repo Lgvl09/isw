@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 22-11-2024 a las 06:29:09
+-- Servidor: 127.0.0.1:3307
+-- Tiempo de generación: 09-12-2024 a las 20:23:39
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Versión de PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,9 @@ CREATE TABLE `brigadistas` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `apellidos` varchar(100) NOT NULL,
+  `telefono` double NOT NULL,
   `correo` varchar(50) NOT NULL,
+  `contrasena` varchar(20) NOT NULL,
   `seccion` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -39,10 +41,11 @@ CREATE TABLE `brigadistas` (
 -- Volcado de datos para la tabla `brigadistas`
 --
 
-INSERT INTO `brigadistas` (`id`, `nombre`, `apellidos`, `correo`, `seccion`) VALUES
-(1, 'Nombre1', 'Apellido1', 'prueba1@gmail.com', 'ESTADIO WILFRIDO MASSIEU'),
-(2, 'Nombre1', 'Apellido1', 'prueba1@gmail.com', 'ESTADIO WILFRIDO MASSIEU'),
-(3, 'Prueba 2', 'xd', 'si@gmail.com', 'ESIT');
+INSERT INTO `brigadistas` (`id`, `nombre`, `apellidos`, `telefono`, `correo`, `contrasena`, `seccion`) VALUES
+(1, 'Nombre1', 'Apellido1', 0, 'prueba1@gmail.com', '', 'ESTADIO WILFRIDO MASSIEU'),
+(2, 'Nombre1', 'Apellido1', 0, 'prueba1@gmail.com', '', 'ESTADIO WILFRIDO MASSIEU'),
+(3, 'Prueba 2', 'xd', 0, 'si@gmail.com', '', 'ESIT'),
+(10, 'Braulio', 'Rodriguez', 5522557894, 'emo.ayala55@gmail.com', 'vfdsvfsvfvs', 'ESCOM/CIC');
 
 -- --------------------------------------------------------
 
@@ -56,7 +59,7 @@ CREATE TABLE `coordinadores` (
   `nombre` varchar(50) NOT NULL,
   `apellido` varchar(50) NOT NULL,
   `correo` varchar(50) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
-  `contrasena` varchar(8) NOT NULL,
+  `contrasena` varchar(50) NOT NULL,
   `fechaRegistro` date NOT NULL DEFAULT current_timestamp(),
   `telefono` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -66,7 +69,8 @@ CREATE TABLE `coordinadores` (
 --
 
 INSERT INTO `coordinadores` (`id`, `coordSuper`, `nombre`, `apellido`, `correo`, `contrasena`, `fechaRegistro`, `telefono`) VALUES
-(1, 1, 'Braulio Emilio ', 'Rodríguez Ayala', 'rodriguez.ayala.braulioemilio@gmail.com', 'abcd1234', '2024-11-27', 5527714259);
+(1, 1, 'Braulio Emilio ', 'Rodríguez Ayala', 'rodriguez.ayala.braulioemilio@gmail.com', 'abcd1234', '2024-11-27', 5527714259),
+(48, 0, 'Braulio', 'Rodríguez', 'emo.ayala55@gmail.com', '$2y$10$dWoejCBKYS11Kb5TaX/XSuoK2EvJmH/xbjAnBCyqhPZ', '2024-12-02', 5521245789);
 
 -- --------------------------------------------------------
 
@@ -153,6 +157,12 @@ INSERT INTO `reporteincidente` (`id`, `opcion`, `fecha`, `hora`, `descripcion`, 
 --
 
 --
+-- Indices de la tabla `brigadistas`
+--
+ALTER TABLE `brigadistas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `coordinadores`
 --
 ALTER TABLE `coordinadores`
@@ -175,10 +185,16 @@ ALTER TABLE `reporteincidente`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `brigadistas`
+--
+ALTER TABLE `brigadistas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT de la tabla `coordinadores`
 --
 ALTER TABLE `coordinadores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT de la tabla `reporte`

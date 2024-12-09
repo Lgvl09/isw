@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($data) {
             echo json_encode($results);
-            header("Location: ../b.html");
+            header("Location: b.html");
         } else {
             echo json_encode(['error' => 'No hay brigadistas en esta sección.']);
         }
