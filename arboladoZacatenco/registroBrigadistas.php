@@ -47,9 +47,7 @@
     // Verificar si hay un mensaje en la sesión y mostrarlo
     if (isset($_SESSION['message'])) {
         if ($_SESSION['message'] == 'correo_existente') {
-            echo "<script>
-                    M.toast({html: 'I am a toast!'})
-                </script>";
+            echo "<script>alert('El correo ya ha sido registrado previamente');</script>";
         } elseif ($_SESSION['message'] == 'error_registrador') {
             echo "<script>alert('El correo del registrador no pertenece a un coordinador superior o no está registrado en la base de datos');</script>";
         } elseif ($_SESSION['message'] == 'registro_exitoso') {
@@ -60,11 +58,11 @@
         unset($_SESSION['message']);
     }
     ?>
-    <h3 class="center-align"><strong>REGISTRO DE COORDINADORES</strong></h3>
+    <h3 class="center-align"><strong>REGISTRO DE BRIGADISTAS</strong></h3>
 
     <div style="width: 50%; margin: 0 auto; padding: 0px; box-sizing: border-box;">
         <div class="row">
-            <form class="col s12" action="subirRegistroCoord.php" method="post">
+            <form class="col s12" action="subirRegistroBrig.php" method="post">
                 <!--
                 <div class="row">
                     <h4>Coordinador que hace el registro</h4>
@@ -82,18 +80,18 @@
                 </div>
                 -->
                 <div class="row center-align">
-                    <h4>Nuevo Coordinador</h4>
+                    <h4>Nuevo Brigadista</h4>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">person</i>
-                        <input id="nombreCoord" name="nombreCoord" type="text" class="validate" >
-                        <label for="nombreCoord">Nombre</label>
+                        <input id="nombreBrig" name="nombreBrig" type="text" class="validate" >
+                        <label for="nombreBrig">Nombre</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="apellidoCoord" name="apellidoCoord" type="text" class="validate" >
-                        <label for="apellidoCoord">Apellido</label>
+                        <input id="apellidoBrig" name="apellidoBrig" type="text" class="validate" >
+                        <label for="apellidoBrig">Apellido</label>
                     </div>
                     <!--
                     <div class="input-field col s2">
@@ -108,20 +106,40 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">phone</i>
-                        <input id="telefonoCoord" name="telefonoCoord" type="tel" class="validate" >
-                        <label for="telefonoCoord">Telefono</label>
+                        <input id="telefonoBrig" name="telefonoBrig" type="tel" class="validate" >
+                        <label for="telefonoBrig">Telefono</label>
                     </div>    
+                    <div class ="input-field col s6">
+                    <i class="bi bi-card-list prefix"></i>
+                        <select class="icons" name="seccionBrig" id="seccionBrig" required>
+                            <option value="" disabled selected>Sección a la que pertenece</option>
+                            <option value="BIBLIOTECA">BIBLIOTECA</option>
+                            <option value="CENLEX">CENLEX</option>
+                            <option value="DIRECCIÓN GENERAL">DIRECCIÓN GENERAL</option>
+                            <option value="ENCB">ENCB</option>
+                            <option value="ESCOM/CIC">ESCOM/CIC</option>
+                            <option value="ESFM">ESFM</option>
+                            <option value="ESIQUIE">ESIQUIE</option>
+                            <option value="ESIT">ESIT</option>
+                            <option value="ESIME">ESIME</option>
+                            <option value="ESTADIO WILFRIDO MASSIEU">ESTADIO WILFRIDO MASSIEU</option>
+                            <option value="UPDCE">UPDCE</option>
+                            <option value="VERDE 1">VERDE 1</option>
+                        </select>
+                    <label>Sección</label>
                 </div>
+                </div>
+                
                 <div class="row"> 
                     <div class="input-field col s6">
                         <i class="material-icons prefix">email</i>
-                        <input id="correoCoord" name="correoCoord" type="email" class="validate" required>
-                        <label for="correoCoord">Email</label>
+                        <input id="correoBrig" name="correoBrig" type="email" class="validate" required>
+                        <label for="correoBrig">Email</label>
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">password</i>
-                        <input id="password" type="password" class="validate">
-                        <label for="password">Contraseña</label>
+                        <input id="contrasenaBrig" name="contrasenaBrig" type="password" class="validate">
+                        <label for="contrasenaBrig">Contraseña</label>
                     </div>  
                 </div>
                 <div class="row center-align">

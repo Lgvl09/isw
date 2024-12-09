@@ -15,12 +15,12 @@ function generarContrasenaAleatoria($longitud = 8) {
 }
 
 // Función para verificar si un correo está registrado
-function verificarCorreo($correoCoord, $conn) {
-    $query = "SELECT COUNT(*) as total FROM coordinadores WHERE correo = ?";
+function verificarCorreo($correoBrig, $conn) {
+    $query = "SELECT COUNT(*) as total FROM brigadistas WHERE correo = ?";
     $stmt = $conn->prepare($query);
     
     if ($stmt) {
-        $stmt->bind_param("s", $correoCoord);
+        $stmt->bind_param("s", $correoBrig);
         $stmt->execute();
         $resultado = $stmt->get_result();
         $fila = $resultado->fetch_assoc();
@@ -49,66 +49,62 @@ function verificarCorreoRegistrador($registrador, $conn) {
 }
 
 // Función para enviar la confirmación de registro por correo
-function enviarConfirmacionRegistro($correoCoord, $contrasena) {
+function enviarConfirmacionRegistro($correoBrig, $contrasenaBrig) {
     $subject = "REGISTRO EXITOSO";
     $message = "
     <html>
         <head>
-            <title>COORDINADOR REGISTRADO CON EXITO</title>
+            <title>BRIGADISTA REGISTRADO CON EXITO</title>
         </head>
         <body>
             <p>Su registro en la plataforma ArboladoZacatenco ha sido exitosa</p>
-            <p>Inicie sesión con el correo $correoCoord y la contraseña $contrasena</p>
+            <p>Inicie sesión con el correo $correoBrig y la contraseña $contrasenaBrig</p>
             <br>
         </body>
     </html>
     ";
     $headers = "MIME-Version: 1.0\r\nContent-type: text/html; charset=utf-8\r\n";
-    $headers .= "From: arboladoisw@gmail.com\r\nReturn-path: $correoCoord\r\n";
-    mail($correoCoord, $subject, $message, $headers);
+    $headers .= "From: arboladoisw@gmail.com\r\nReturn-path: $correoBrig\r\n";
+    mail($correoBrig, $subject, $message, $headers);
 
 }
 
 // Verificar si los datos fueron enviados
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    //$registrador = $_POST['registrador'];
     $registrador = "rodriguez.ayala.braulioemilio@gmail.com";
-    $nombreCoord = $_POST['nombreCoord'];
-    $apellidoCoord = $_POST['apellidoCoord'];
-    $telefonoCoord = $_POST['telefonoCoord'];
-    $correoCoord = $_POST['correoCoord'];
-    //$coordSuper = isset($_POST['coordSuper']) ? "1" : "0"; 
-    $coordSuper = "0";
-
-    $contrasena = generarContrasenaAleatoria();
-    $contrasenaCoord = password_hash($contrasena, PASSWORD_DEFAULT);
+    $nombreBrig = $_POST['nombreBrig'];
+    $apellidoBrig = $_POST['apellidoBrig'];
+    $telefonoBrig = $_POST['telefonoBrig'];
+    $correoBrig = $_POST['correoBrig'];
+    $contrasenaBrig = $_POST['contrasenaBrig'];
+    $seccionBrig = $_POST['seccionBrig'];
 
     // Verificar que el registrador sea válido
     if (!verificarCorreoRegistrador($registrador, $conn)) {
         $_SESSION['message'] = 'error_registrador';
-        header("Location: registroCoordinador.php");
+        header("Location: registroBrigadistas.php");
         exit();
     }
 
     // Verificar si el correo ya está registrado
-    if (verificarCorreo($correoCoord, $conn)) {
+    if (verificarCorreo($correoBrig, $conn)) {
         $_SESSION['message'] = 'correo_existente';
-        header("Location: registroCoordinador.php");
+        header("Location: registroBrigadistas.php");
         exit();
     }
 
     // Insertar los datos del nuevo coordinador
-    $sql = "INSERT INTO coordinadores (coordSuper, nombre, apellido, correo, contrasena, telefono) 
+    $sql = "INSERT INTO brigadistas(nombre, apellidos, telefono, correo, contrasena, seccion) 
             VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
     
     if ($stmt) {
-        $stmt->bind_param("isssss", $coordSuper, $nombreCoord, $apellidoCoord, $correoCoord, $contrasenaCoord, $telefonoCoord);
+        $stmt->bind_param("ssdsss", $nombreBrig, $apellidoBrig, $telefonoBrig, $correoBrig, $contrasenaBrig, $seccionBrig);
         
         if ($stmt->execute()) {
-            enviarConfirmacionRegistro($correoCoord, $contrasena);
+            enviarConfirmacionRegistro($correoBrig, $contrasenaBrig);
             $_SESSION['message'] = 'registro_exitoso';
-            header("Location: registroCoordinador.php");
+            header("Location: registroBrigadistas.php");
             exit();
         } else {
             echo "Error al guardar los datos: " . $conn->error;
