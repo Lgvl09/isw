@@ -5,14 +5,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Arbolado Zacatenco</title>
-        <link rel="icon" href="../includes/tree-fill.svg">
+        <link rel="icon" href="includes/tree-fill.svg">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet">
-        <link rel="stylesheet" href="../css/brigada.css">
+        <link rel="stylesheet" href="css/brigada.css">
     </head>
 
     <body>
@@ -20,7 +20,7 @@
         <nav class="light-green darken-1">
             <div class="navbar-wrapper">
                 <div class="nav-wrapper container">
-                    <a href="../index.php" class="brand-logo"><i
+                    <a href="index.php" class="brand-logo"><i
                             class="bi bi-house-door-fill"></i></a>
                     <ul class="right">
                         <li><a href="#" class="dropdown-trigger"
@@ -44,9 +44,9 @@
 
         <!-- Dropdown options -->
         <ul id="reportes" class="dropdown-content">
-            <li><a href="../reportes/reporte.php">Levantar reporte</a></li>
-            <li><a href="../reportes/seguimiento_reporte.php">Consultar reportes</a></li>
-            <li><a href="../reportes/modificar_estado.php">Modificar estado de reportes</a></li>
+            <li><a href="reporte.php">Levantar reporte</a></li>
+            <li><a href="seguimiento_reporte.php">Consultar reportes</a></li>
+            <li><a href="modificar_estado.php">Modificar estado de reportes</a></li>
         </ul>
 
         <!-- Título principal -->
@@ -58,7 +58,7 @@
         <div class="container main-container">
             <!-- Mapa -->
             <div class="map-container">
-                <img src="../img/mapa.png" alt="Mapa" class="responsive-img">
+                <img src="img/mapa.png" alt="Mapa" class="responsive-img">
             </div>
 
             <!-- Acciones -->
@@ -70,7 +70,7 @@
 
                 <!-- Formularios dinámicos -->
                 <form id="addMemberForm" class="card action-card"
-                    action="register_brigadista.php" method="post">
+                    action="php/register_brigadista.php" method="post">
                     <div class="card-content">
                         <span class="card-title">Añadir miembro a brigada</span>
                         <div class="input-field">
@@ -113,7 +113,7 @@
                 </form>
 
                 <form id="consultMemberForm" class="card action-card"
-                    action="consult_brigadista.php" method="post">
+                    action="php/consult_brigadista.php" method="post">
                     <div class="card-content">
                         <span class="card-title">Consultar brigadista</span>
                         <div class="input-field">
@@ -126,7 +126,7 @@
                 </form>
 
                 <form id="consultBrigadeForm" class="card action-card"
-                    action="consult_brigada.php" method="post">
+                    action="php/consult_brigada.php" method="post">
                     <div class="card-content">
                         <span class="card-title">Consultar brigada</span>
                         <div class="input-field">
@@ -156,13 +156,13 @@
             <script
                 src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-            <script src="../js/brigada.js"></script>
+            <script src="js/brigada.js"></script>
             <!-- Asegurar que los scripts PHP estén accesibles -->
-            <form id="registerForm" action="register_brigadista.php"
+            <form id="registerForm" action="php/register_brigadista.php"
                 method="POST" style="display:none;"></form>
-            <form id="consultMemberForm" action="consult_brigadista.php"
+            <form id="consultMemberForm" action="php/consult_brigadista.php"
                 method="POST" style="display:none;"></form>
-            <form id="consultBrigadeForm" action="consult_brigada.php"
+            <form id="consultBrigadeForm" action="php/consult_brigada.php"
                 method="POST" style="display:none;"></form>
 
         </body>

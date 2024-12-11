@@ -1,6 +1,6 @@
-<?php include("../db.php"); ?>
+<?php include("db.php"); ?>
 
-<?php include("../includes/header.php") ?>
+<?php include("includes/header.php") ?>
 
 <body onload="<?php 
     if(isset($_SESSION['message'])){ 
@@ -16,9 +16,36 @@
         session_unset();
     }
     ?>">
+    <nav class="light-green darken-1">
+      <div class="navbar-wrapper">
+          <div class="nav-wrapper container">
+              <a href="index.php" class="brand-logo"><i class="bi bi-house-door-fill"></i></a>
+              <ul class="right">
+                <li class="active">
+                    <a href="#" class="dropdown-trigger" data-target="reportes"><b>Reportes<i class="material-icons right">arrow_drop_down</i></b></a>
+                </li>
+                  <li>
+                      <a class="dropdown-trigger" href="#!" data-target="dropdown1"><b>Brigadas</b><i
+                              class="material-icons right">arrow_drop_down</i></a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
 
-    <?php include("../includes/navbar.php") ?>  
-    
+  <!-- Dropdown options -->
+  <ul id="dropdown1" class="dropdown-content">
+      <li><a href="b.html">Voluntarios</a></li>
+      <li><a href="#!">Asignar Reporte</a></li>
+  </ul>
+
+    <!-- Dropdown options -->
+  <ul id="reportes" class="dropdown-content">
+    <li><a href="reporte.php">Levantar reporte</a></li>
+    <li><a href="seguimiento_reporte.php">Consultar reportes</a></li>
+    <li><a href="modificar_estado.php">Modificar estado de reportes</a></li>
+    <li><a href="monitoreoReporte.php">Monitoreo de reportes</a></li>
+</ul>  
     <h3 class="center-align"><strong>LEVANTAR REPORTE DE ARBOLADO</strong></h3>
     
     <div class="row">
@@ -42,12 +69,12 @@
                     <i class="bi bi-card-list prefix"></i>
                     <select class="icons" name="tipo" id="tipo" required>
                         <option value="" disabled selected>Escoge una opción</option>
-                        <option value="Ramas caídas" data-icon="../img/tree-branch.png">Ramas caídas</option>
-                        <option value="Árbol enfermo/plagas" data-icon="../img/bug-fill.svg">Árbol enfermo/plagas</option>
-                        <option value="Poda necesaria" data-icon="../img/tree-tools.png">Poda necesaria</option>
-                        <option value="Árbol caído" data-icon="../img/tree-fallen.png">Árbol caído</option>
-                        <option value="Falta de mantenimiento" data-icon="../img/tree-maintenance.png">Falta de mantenimiento</option>
-                        <option value="Otros riesgos potenciales" data-icon="../img/tree-risks.png">Otros riesgos potenciales</option>
+                        <option value="Ramas caídas" data-icon="includes/tree-branch.png">Ramas caídas</option>
+                        <option value="Árbol enfermo/plagas" data-icon="includes/bug-fill.svg">Árbol enfermo/plagas</option>
+                        <option value="Poda necesaria" data-icon="includes/tree-tools.png">Poda necesaria</option>
+                        <option value="Árbol caído" data-icon="includes/tree-fallen.png">Árbol caído</option>
+                        <option value="Falta de mantenimiento" data-icon="includes/tree-maintenance.png">Falta de mantenimiento</option>
+                        <option value="Otros riesgos potenciales" data-icon="includes/tree-risks.png">Otros riesgos potenciales</option>
                     </select>
                     <label>Tipo de reporte</label>
                 </div>
@@ -95,9 +122,9 @@
 
     </div>
 
-    <script src="../js/brigada.js"></script>
-    <link rel="stylesheet" href="../css/dropdown.css">
+    <script src="js/brigada.js"></script>
+    <link rel="stylesheet" href="css/dropdown.css">
 
 
-<?php include("../includes/footer.php") ?>
+<?php include("includes/footer.php") ?>
 </html>

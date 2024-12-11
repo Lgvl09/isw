@@ -1,6 +1,6 @@
 <?php
 
-include("../db.php"); 
+include("db.php"); 
 
 // Verificar si los datos fueron enviados
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
