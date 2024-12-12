@@ -6,11 +6,11 @@
     <title>Inicio</title>
 </head>
 <body>
-    <a href="reporte.php">¿Quieres levantar un reporte?</a>
-    <a href="seguimiento_reporte.php">Revisar estado del reporte</a>
-    <a href="modificar_estado.php">Modificar estado del reporte</a>
-    <a href="b.html">Brigadas</a>
-    <a href="reporteIncidentes.php">Reporte de incidentes en brigadas</a>
-    <a href="monitoreoReporte.php">Monitoreo de actividades de la brigada</a>
+    <a href="reportes/reporte.php">¿Quieres levantar un reporte?</a>
+    <a href="reportes/seguimiento_reporte.php">Revisar estado del reporte</a>
+    <a href="reportes/modificar_estado.php">Modificar estado del reporte</a>
+    <a href="brigadas/b.html">Brigadas</a>
+    <a href="brigadas/reporteIncidentes.php">Reporte de incidentes en brigadas</a>
+    <a href="reportes/monitoreoReporte.php">Monitoreo de actividades de la brigada</a>
 </body>
 </html>
