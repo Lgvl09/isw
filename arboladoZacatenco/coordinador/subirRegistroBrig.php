@@ -1,5 +1,5 @@
 <?php
-include("db.php");
+include("../db.php");
 
 // Función para generar la contraseña aleatoria
 function generarContrasenaAleatoria($longitud = 8) {
@@ -70,47 +70,54 @@ function enviarConfirmacionRegistro($correoBrig, $contrasenaBrig) {
 }
 
 // Verificar si los datos fueron enviados
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (isset($_POST['crear_brigadista'])) {
     $registrador = "rodriguez.ayala.braulioemilio@gmail.com";
     $nombreBrig = $_POST['nombreBrig'];
     $apellidoBrig = $_POST['apellidoBrig'];
     $telefonoBrig = $_POST['telefonoBrig'];
     $correoBrig = $_POST['correoBrig'];
-    $contrasenaBrig = $_POST['contrasenaBrig'];
-    $seccionBrig = $_POST['seccionBrig'];
+    $idBrigada = $_POST['idBrigada'];
+
+    $contrasena = generarContrasenaAleatoria();
+    $contrasenaBrig = password_hash($contrasena, PASSWORD_DEFAULT);
+    $_SESSION['idBrigada'] = $idBrigada;
 
     // Verificar que el registrador sea válido
-    if (!verificarCorreoRegistrador($registrador, $conn)) {
+    /*if (!verificarCorreoRegistrador($registrador, $conn)) {
         $_SESSION['message'] = 'error_registrador';
         header("Location: registroBrigadistas.php");
         exit();
-    }
+    }*/
 
     // Verificar si el correo ya está registrado
     if (verificarCorreo($correoBrig, $conn)) {
         $_SESSION['message'] = 'correo_existente';
-        header("Location: registroBrigadistas.php");
+        header("Location: ../brigadas/monitoreoActividades.php");
         exit();
     }
 
     // Insertar los datos del nuevo coordinador
-    $sql = "INSERT INTO brigadistas(nombre, apellidos, telefono, correo, contrasena, seccion) 
+    $sql = "INSERT INTO brigadistas(nombre, apellidos, telefono, correo, contrasena, brigada) 
             VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
     
     if ($stmt) {
-        $stmt->bind_param("ssdsss", $nombreBrig, $apellidoBrig, $telefonoBrig, $correoBrig, $contrasenaBrig, $seccionBrig);
+        $stmt->bind_param("sssssd", $nombreBrig, $apellidoBrig, $telefonoBrig, $correoBrig, $contrasenaBrig, $idBrigada);
         
         if ($stmt->execute()) {
             enviarConfirmacionRegistro($correoBrig, $contrasenaBrig);
             $_SESSION['message'] = 'registro_exitoso';
-            header("Location: registroBrigadistas.php");
+            header("Location: ../brigadas/monitoreoActividades.php");
             exit();
         } else {
             echo "Error al guardar los datos: " . $conn->error;
+            $_SESSION['message'] = 'registro_fallido';
         }
     } else {
         echo "Error al preparar la consulta: " . $conn->error;
+        $_SESSION['message'] = 'registro_fallido';
     }
+
+    header("Location: ../brigadas/monitoreoActividades.php");
 }
 ?>

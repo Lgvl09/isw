@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Arbolado Zacatenco</title>
-        <link rel="icon" href="../includes/tree-fill.svg">
+        <link rel="icon" href="../img/tree-fill.svg">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link rel="stylesheet"
@@ -42,7 +42,9 @@
         <!-- Dropdown options -->
         <ul id="dropdown1" class="dropdown-content">
             <li><a href="../brigadas/b.html">Voluntarios</a></li>
-            <li><a href="#!">Asignar Reporte</a></li>
+            <li><a href="#!">Asignar reporte</a></li>
+            <li><a href="../brigadas/reporteIncidentes.php">Reporte de incidentes</a></li>
+            <li><a href="../reportes/monitoreoReporte.php">Monitoreo de actividades</a></li>
         </ul>
         
             <!-- Dropdown options -->
@@ -50,7 +52,6 @@
             <li><a href="../reportes/reporte.php">Levantar reporte</a></li>
             <li><a href="../reportes/seguimiento_reporte.php">Consultar reportes</a></li>
             <li><a href="../reportes/modificar_estado.php">Modificar estado de reportes</a></li>
-            <li><a href="../reportes/monitoreoReporte.php">Monitoreo de reportes</a></li>
         </ul> 
         
         <ul id="censos" class="dropdown-content">
@@ -60,7 +61,8 @@
         </ul>
         
         <ul id="coordinador" class="dropdown-content">
-            <li><a href="../brigadas/registroCoordinador.php">Registrar coordinadores</a></li>
+            <li><a href="../coordinador/registroCoordinador.php">Registrar coordinadores</a></li>
+            <li><a href="../coordinador/registroBrigadistas.php">Registrar brigadistas</a></li>
         </ul>
 
         <!-- Título principal -->
@@ -72,7 +74,7 @@
         <div class="container main-container">
             <!-- Mapa -->
             <div class="map-container">
-                <img src="../img/mapa.png" alt="Mapa" class="responsive-img">
+                <img src="../img/mapaN.png" alt="Mapa" class="responsive-img">
             </div>
 
             <!-- Acciones -->
@@ -111,6 +113,7 @@
                                 <option value="ENCB">ENCB</option>
                                 <option value="ESCOM/CIC">ESCOM/CIC</option>
                                 <option value="ESFM">ESFM</option>
+                                <option value="ESIME">ESIA</option>
                                 <option value="ESIME">ESIME</option>
                                 <option value="ESIQIE">ESIQIE</option>
                                 <option value="ESIT">ESIT</option>
@@ -152,11 +155,12 @@
                                 <option value="ENCB">ENCB</option>
                                 <option value="ESCOM/CIC">ESCOM/CIC</option>
                                 <option value="ESFM">ESFM</option>
+                                <option value="ESIME">ESIA</option>
                                 <option value="ESIME">ESIME</option>
                                 <option value="ESIQIE">ESIQIE</option>
                                 <option value="ESIT">ESIT</option>
                                 <option value="ESTADIO WILFRIDO MASSIEU">ESTADIO WILFRIDO MASSIEU</option>
-                                <option value="UPDCE">UPDCE</option>yy
+                                <option value="UPDCE">UPDCE</option>
                                 <option value="VERDE 1">VERDE 1</option>
                             </select>
                             <label>Sección</label>

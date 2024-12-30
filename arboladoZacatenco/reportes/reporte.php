@@ -57,7 +57,7 @@
                     <label for="descripcion">Descripción del problema</label>
                 </div>
                 <div class="file-field input-field col s10 offset-s2">
-                    <div class="btn green darken-4">
+                    <div class="btn light-green darken-4">
                         <i class="bi bi-image"></i>
                         <input type="file" id="imagen" name="imagen" required accept="image/png, image/jpeg, image/jpg">
                     </div>
@@ -81,23 +81,14 @@
                 </div>
             </div>
 
-            <div class="col s2 offset-s5">
-                <br>
-                <button class="btn waves-effect waves-light green darken-4" type="submit" name="subir_reporte"
-                style="height: 4em;" value="Submit">Enviar reporte
-                    <i class="bi bi-send"></i>
+            <div class="col s12 center-align">
+                <button class="btn waves-effect waves-light light-green darken-4" type="submit" name="subir_reporte" value="Submit">Enviar reporte
+                    <i class="material-icons right">send</i>
                 </button>
             </div>
         </form>
-
-
-        
-
     </div>
-
-    <script src="../js/brigada.js"></script>
-    <link rel="stylesheet" href="../css/dropdown.css">
-
-
 <?php include("../includes/footer.php") ?>
+
+</body>
 </html>

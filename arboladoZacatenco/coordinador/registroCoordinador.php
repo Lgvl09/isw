@@ -87,11 +87,12 @@
                     </div>  
                 </div>
                 <div class="row center-align">
-                    <button class="btn waves-effect waves-light green darken-4" type="submit" name="action">Registrar<i class="material-icons right">send</i></button>
+                    <button class="btn waves-effect waves-light light-green darken-4" type="submit" name="action">Registrar<i class="material-icons right">send</i></button>
                 </div>
             </form>
         </div>
     </div>
 
 <?php include("../includes/footer.php") ?>
+</body>
 </html>
