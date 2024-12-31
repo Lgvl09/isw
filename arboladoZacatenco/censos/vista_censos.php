@@ -1,11 +1,18 @@
-<?php include("../db.php");?>
+<?php include("../db.php");
+
+if(!isset($_SESSION['tipoUsuario'])){
+    header("Location: ../index.php");
+} elseif(isset($_SESSION['tipoUsuario']) && strcmp($_SESSION['tipoUsuario'], "brigadista") == 0){
+    header("Location: ../index.php");
+}
+?>
 
 <?php include("../includes/header.php") ?>
 
 <body onload="<?php 
     if(isset($_SESSION['message'])){ 
         echo $_SESSION['message'];
-        session_unset();
+        unset($_SESSION['message']);
     }
 ?>">
 

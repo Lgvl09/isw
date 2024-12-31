@@ -5,16 +5,15 @@
 <body onload="<?php 
     if(isset($_SESSION['message'])){ 
         echo $_SESSION['message'];
+        unset($_SESSION['message']);
     }
 
     if(isset($_SESSION['message_correo'])){ 
         echo ",";
         echo $_SESSION['message_correo'];
+        unset($_SESSION['message_correo']);
     }
 
-    if(isset($_SESSION['message']) || isset($_SESSION['message_correo'])){
-        session_unset();
-    }
     ?>">
 
     <?php include("../includes/navbar.php") ?>  

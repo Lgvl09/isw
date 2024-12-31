@@ -29,6 +29,7 @@ var map = new L.map('map', mapOptions);
 // Creating a Layer object
 var layer = new L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
     maxZoom: 20,
+    minZoom: 15,
     subdomains:['mt0','mt1','mt2','mt3']
 });
 

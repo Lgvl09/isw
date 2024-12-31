@@ -1,6 +1,17 @@
 <?php include("../db.php"); 
 
 $id = NULL;
+
+if(!isset($_SESSION['tipoUsuario'])){
+    header("Location: ../index.php");
+} else {
+    $correo = $_SESSION['correo'];
+    $query = "SELECT brigada FROM brigadistas WHERE correo = '$correo';";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_array($result);
+    $id = $row['brigada'];
+}
+
 if(isset($_POST['monitoreoActividades'])){
     $id = $_GET['id'];
 }
@@ -8,6 +19,8 @@ if(isset($_POST['monitoreoActividades'])){
 if(isset($_SESSION['idBrigada'])){
     $id = $_SESSION['idBrigada'];
 }
+
+
 
 if(strcmp($id, NULL) == 0){
     header("Location: vista_brigadas.php");
@@ -350,6 +363,8 @@ if($rowToast = mysqli_fetch_array($result)){
     }
 ?>
 
+<?php if(isset($_SESSION['tipoUsuario']) && strcmp($_SESSION['tipoUsuario'], "coordinador") == 0){
+        ?>
     <div class="fixed-action-btn">
         <a class="btn-floating btn-large light-green darken-4 modal-trigger" href="#nuevo_brigadista">
             <i class="large material-icons">add</i>
@@ -392,7 +407,8 @@ if($rowToast = mysqli_fetch_array($result)){
             </form>
         </div>
     </div>
-
+    <?php
+    } ?>
 
 <?php include("../includes/footer.php") ?>
 

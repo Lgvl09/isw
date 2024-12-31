@@ -98,56 +98,5 @@
             max-height: 15rem;
             overflow-y: auto;
         }
-        
-        
-
-/*
-        /* Centrar y reducir el cuadro de búsqueda 
-div.dataTables_filter {
-    text-align: center !important; /* Centra el contenido 
-    margin-top: 10px;
-}
-
-div.dataTables_filter label {
-    display: inline-block;
-    font-size: 14px;
-}
-
-div.dataTables_filter input {
-    border: 1px solid #ccc !important;
-    border-radius: 5px !important;
-    padding: 5px !important;
-    width: 300px !important; /* Ajusta el ancho 
-    font-size: 14px !important;
-}
-
-
-/* Estilo para los botones de paginación 
-nav[aria-label="pagination"] .dt-paging-button {
-    background-color: #43a047 !important; /* Color verde 
-    color: white !important;
-    border-radius: 4px !important;
-    padding: 5px 10px;
-    margin: 0 2px;
-    text-decoration: none;
-    border: none !important;
-    cursor: pointer !important;
-}
-
-/* Botón actual 
-nav[aria-label="pagination"] .dt-paging-button.current {
-    background-color: #2e7d32 !important; /* Verde más oscuro 
-}
-
-/* Hover en los botones 
-nav[aria-label="pagination"] .dt-paging-button:hover {
-    background-color: #388e3c !important;
-    color: white !important;
-}
-
-nav[aria-label="pagination"] {
-    background-color: white !important;
-}
-*/
     </style>
 </head>

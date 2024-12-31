@@ -20,6 +20,12 @@ function pointInPolygon($point, $polygon) {
 
     return $inside;
 }
+
+if(!isset($_SESSION['tipoUsuario'])){
+    header("Location: ../index.php");
+} elseif(isset($_SESSION['tipoUsuario']) && strcmp($_SESSION['tipoUsuario'], "brigadista") == 0){
+    header("Location: ../index.php");
+}
 ?>
 
 <?php include("../includes/header.php") ?>
@@ -27,7 +33,7 @@ function pointInPolygon($point, $polygon) {
 <body onload="<?php 
     if(isset($_SESSION['message'])){ 
         echo $_SESSION['message'];
-        session_unset();
+        unset($_SESSION['message']);
     }
 ?>">
 

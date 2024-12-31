@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-12-2024 a las 07:36:50
+-- Tiempo de generación: 31-12-2024 a las 06:10:13
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -40,7 +40,6 @@ CREATE TABLE `brigadas` (
 --
 
 CREATE TABLE `brigadistas` (
-  `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `apellidos` varchar(100) NOT NULL,
   `telefono` varchar(20) NOT NULL,
@@ -88,7 +87,6 @@ CREATE TABLE `censo_arboles` (
 --
 
 CREATE TABLE `coordinadores` (
-  `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `apellido` varchar(50) NOT NULL,
   `correo` varchar(50) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
@@ -180,7 +178,7 @@ ALTER TABLE `brigadas`
 -- Indices de la tabla `brigadistas`
 --
 ALTER TABLE `brigadistas`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`correo`),
   ADD KEY `brigadistas_ibfk_1` (`brigada`);
 
 --
@@ -201,7 +199,7 @@ ALTER TABLE `censo_arboles`
 -- Indices de la tabla `coordinadores`
 --
 ALTER TABLE `coordinadores`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`correo`);
 
 --
 -- Indices de la tabla `estado_reporte`
@@ -241,12 +239,6 @@ ALTER TABLE `brigadas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `brigadistas`
---
-ALTER TABLE `brigadistas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `censos`
 --
 ALTER TABLE `censos`
@@ -256,12 +248,6 @@ ALTER TABLE `censos`
 -- AUTO_INCREMENT de la tabla `censo_arboles`
 --
 ALTER TABLE `censo_arboles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `coordinadores`
---
-ALTER TABLE `coordinadores`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
