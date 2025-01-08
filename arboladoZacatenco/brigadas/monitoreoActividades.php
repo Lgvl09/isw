@@ -4,7 +4,7 @@ $id = NULL;
 
 if(!isset($_SESSION['tipoUsuario'])){
     header("Location: ../index.php");
-} else {
+} else if(strcmp($_SESSION['tipoUsuario'], "brigadista") == 0) {
     $correo = $_SESSION['correo'];
     $query = "SELECT brigada FROM brigadistas WHERE correo = '$correo';";
     $result = mysqli_query($conn, $query);
