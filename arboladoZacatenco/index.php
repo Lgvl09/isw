@@ -97,10 +97,56 @@
         <li><a href="coordinador/registroCoordinador.php">Registrar coordinadores</a></li>
     </ul>
 
-    <h3 class="center-align"><strong>AQUÍ VA EL MAPA</strong></h3><br><br>
-
+    <h3 class="center-align" id=""><strong>Arbolado de Zacatenco</strong></h3><br><br>
+    <div class="col s7" id="mapa-container" style="height: 74vh; padding-left: 2rem; margin-right: 2rem;">
+        <div id="mapaLogin" style="width: 100%; height: 100%;"></div>
+    </div>
 
 <?php include("includes/footer.php") ?>
+<script>
+    // Inicializa el mapa Leaflet
+    var mapa = L.map('mapaLogin', {
+        center: [19.502166, -99.139326], // Coordenadas de Zacatenco
+        zoom: 16,
+        zoomControl: true, // Activa los controles de zoom
+        dragging: true, // Activa el arrastre
+        scrollWheelZoom: true // Activa el zoom con la rueda del mouse
+    });
+
+    // Añade un tile layer
+    var layer = new L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+        maxZoom: 20,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+    });
+
+    // Añade la capa al mapa
+    mapa.addLayer(layer);
+
+    // Coordenadas y textos para los marcadores
+    const markerData = [
+        { coords: [19.502166, -99.139326], text: "Marcador 1" },
+        { coords: [19.50066, -99.13977], text: "Marcador 2" },
+        { coords: [19.503166, -99.138326], text: "Marcador 3" },
+        { coords: [19.501166, -99.137326], text: "Marcador 4" },
+        { coords: [19.504166, -99.140326], text: "Marcador 5" },
+    ];
+
+    // Añadir los marcadores con eventos
+    markerData.forEach((markerInfo) => {
+        const marker = L.marker(markerInfo.coords).addTo(mapa);
+
+        // Evento al pasar el mouse sobre el marcador
+        marker.on('mouseover', () => {
+            marker.bindPopup(markerInfo.text).openPopup();
+            console.log(`Mouse sobre: ${markerInfo.text}`);
+        });
+
+        // Evento al quitar el mouse del marcador
+        marker.on('mouseout', () => {
+            marker.closePopup();
+        });
+    });
+</script>
 
 </body>
 </html>

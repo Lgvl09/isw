@@ -43,7 +43,6 @@
     <?php if(isset($_SESSION['tipoUsuario']) && strcmp($_SESSION['tipoUsuario'], "coordinador") == 0){
         ?>
     <li><a href="../brigadas/vista_brigadas.php">Brigadas existentes</a></li>
-    <li><a href="../brigadas/b.html">Voluntarios</a></li>
     <?php
     } else if(isset($_SESSION['tipoUsuario']) && strcmp($_SESSION['tipoUsuario'], "brigadista") == 0) { ?>
     <li><a href="../brigadas/monitoreoActividades.php">Monitorea tu brigada</a></li>
